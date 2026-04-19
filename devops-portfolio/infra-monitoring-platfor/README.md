@@ -1,3 +1,36 @@
+# infra-monitoring-platform/devops-portfolio/infra-monitoring-platfor
+---
+
+## infra-monitoring-platform/
+
+- docker-compose.yml
+- README.md
+
+- app/
+- - Dockerfile
+  - (Spring Boot 프로젝트)
+
+- nginx/
+- - nginx.conf
+
+- redis/
+- - redis.conf (optional)
+
+- monitoring/
+- - prometheus.yml
+  - grafana/
+  - - dashboards/
+
+- stress-test/
+- - stress.sh
+
+- docs/
+- - architecture.png
+  - troubleshooting.md
+  - performance.md
+
+---
+
 이 프로젝트는 Docker 기반 Spring Boot 서비스를 구축하고,
 Nginx Reverse Proxy와 Redis 캐싱을 적용하여 성능을 개선하였으며,
 Prometheus와 Grafana를 활용해 모니터링 환경을 구성한 인프라 운영 프로젝트입니다.
