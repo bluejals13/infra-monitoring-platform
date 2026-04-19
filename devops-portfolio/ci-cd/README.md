@@ -1,3 +1,15 @@
+# infra-monitoring-platform/devops-portfolio/ci-cd
+---
+
+## CI/CD 실습
+
+- ci-cd/                       
+- - github-actions.yml        자동 빌드/배포 워크플로
+- - jenkins/                  Jenkins 설정 예시
+- - README.md
+
+---
+
 이 프로젝트는 Docker 기반 Spring Boot 서비스를 구축하고,
 Nginx Reverse Proxy와 Redis 캐싱을 적용하여 성능을 개선하였으며,
 Prometheus와 Grafana를 활용해 모니터링 환경을 구성한 인프라 운영 프로젝트입니다.
