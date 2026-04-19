@@ -16,7 +16,7 @@
 - redis/
 - - redis.conf (optional)
 
-- monitoring/
+- obseravility/
 - - prometheus.yml
   - grafana/
   - - dashboards/
