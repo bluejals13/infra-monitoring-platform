@@ -1,99 +1,149 @@
-각 분리 내용
 
-| 영역                | 목적         | 주요 역할              | 핵심 책임                            | 주요 산출물                                  |
-| ----------------- | ---------- | ------------------ | -------------------------------- | --------------------------------------- |
-| 🟦 SRE Layer      | 시스템 안정성 확보 | 장애 탐지 / 분석 / 대응    | 서비스 안정성 유지 (Latency, Error Rate) | Observability 대시보드, Runbook, Alert Rule |
-| 🟧 MSP Layer      | 운영 프로세스 관리 | 티켓 / SLA / 고객 운영   | 장애 처리 표준화 및 운영 절차화               | Ticket Flow, SLA 정책, Escalation 정책      |
-| 🟩 Platform Layer | 인프라 제공     | 클러스터 / CI/CD / IaC | 서비스 실행 환경 제공 및 자동화               | Kubernetes, Terraform, CI/CD pipeline   |
+
+## SRE 구조
+
+```bash
+
+1\_sre/
+
+│
+
+├── observability/
+
+│   ├── metrics/
+
+│   ├── dashboards/
+
+│   ├── alerts/
+
+│   └── slo-sli/
+
+│
+
+├── k6-validation/
+
+│   ├── baseline-test.js
+
+│   ├── stress-test.js
+
+│   └── spike-test.js
+
+│
+
+├── runbooks/
+
+│   ├── api-latency.md
+
+│   ├── pod-crash.md
+
+│   ├── db-slow.md
+
+│   └── memory-leak.md
+
+│
+
+├── incident-analysis/
+
+│   ├── postmortem-template.md
+
+│   ├── sample-incident.md
+
+│   └── root-cause-analysis.md
+
+│
+
+└── automation/
+
+&nbsp;   ├── alert-rules.yaml
+
+&nbsp;   ├── grafana-provisioning.yaml
+
+&nbsp;   └── log-query-scripts
+
+```
+
+문제 탐지 → 분석 → 재현 → 대응 흐름
 
 ---
 
-## 1. SRE Layer (시스템 안정성)
+## 1. Observability (관측 시스템)
 
+* 시스템 상태를 실시간으로 판단
 
+| 핵심 역할                                         | 주요 기술 / 산출물                              |
 
-### 1. 목적
-서비스 장애 원인 탐지 및 복구
+| --------------------------------------------- | ---------------------------------------- |
 
+| Metrics 수집 (CPU, Memory, Latency, Error Rate) | Prometheus                               |
 
-### 2. 책임
-```bash
-Observability: Prometheus / Grafana / Loki 모니터링
-Alerting: latency, error rate, resource threshold 감지
-RCA: 장애 원인 분석
-Validation: k6 트래픽 테스트
-Recovery: runbook 기반 대응
-```
+| Dashboard 시각화                                 | Grafana                                  |
 
-### 3. 기술
-Prometheus / Grafana / Loki
+| 이상 상태 알림 (Alerts)                             | Loki                                     |
 
+| SLO / SLI 정의                                  | latency dashboard / error rate dashboard |
 
-### 4. 산출물
-```bash
-latency dashboard
-error rate dashboard
-runbook.md
-k6 test scenario
-```
 ---
 
-## 2. MSP Layer (운영 프로세스)
+## 2. k6 Validation (트래픽 검증)
 
+* 실제 트래픽 기반 성능 및 한계 검증
 
+| 핵심 역할                   | 주요 기술 / 산출물        |
 
-### 1. 목적
-장애 대응의 표준화 및 신속 처리
+| ----------------------- | ------------------ |
 
+| Baseline (정상 기준 설정)     | k6                 |
 
-### 2. 책임
-```bash
-Tenant 관리 (고객/서비스 분리)
-Ticket flow (Alert → Ticket → 처리)
-SLA 관리 (응답/복구 기준)
-Escalation (L1 → L2 → L3)
-Incident reporting
-```
+| Stress test (한계 부하 검증)  | k6 test scenario   |
 
-### 3. 시스템
-Jira / ServiceNow
+| Spike test (급격한 트래픽 대응) | 성능 기준 / scaling 기준 |
 
-
-### 4. 산출물
-```bash
-ticket-flow.md
-sla.md
-escalation-policy.md
-incident-report.md
-```
 ---
 
-## 3. Platform Engineering Layer
+## 3. Runbooks (표준 대응 매뉴얼)
 
+* 장애 대응 방식의 표준화
 
+| 핵심 역할                            | 주요 기술 / 산출물               |
 
-### 1. 목적
-서비스 실행을 위한 공통 인프라 제공
+| -------------------------------- | ------------------------- |
 
+| API / Pod / DB / Memory 장애 대응 절차 | runbook.md                |
 
-### 2. 책임
-```bash
-Kubernetes 클러스터 운영
-CI/CD 파이프라인 구축
-Infrastructure provisioning (Terraform)
-Configuration management (Ansible)
-Shared runtime platform 제공
-```
+| 상황별 대응 가이드 제공                    | api-latency.md            |
 
-### 3. 기술
-Kubernetes / Terraform / Ansible / GitHub Actions
+| 운영 경험 문서화                        | db-slow.md / pod-crash.md |
 
+---
 
-### 4. 산출물
-```bash
-cluster.yaml
-terraform modules
-CI/CD pipeline
-deployment guide
-```
+## 4. Incident Analysis (사후 분석)
+
+* 장애 원인 분석 및 재발 방지
+
+| 핵심 역할                     | 주요 기술 / 산출물         |
+
+| ------------------------- | ------------------- |
+
+| Postmortem 작성             | postmortem template |
+
+| 장애 사례 기록                  | incident report     |
+
+| Root Cause Analysis (RCA) | RCA 문서              |
+
+---
+
+## 5. Automation (SRE 자동화)
+
+* 운영 작업의 자동화 및 코드화
+
+| 핵심 역할           | 주요 기술 / 산출물            |
+
+| --------------- | ---------------------- |
+
+| Alert rule 자동화  | Prometheus alert rules |
+
+| Dashboard 자동 생성 | Grafana provisioning   |
+
+| 로그 조회 자동화       | log scripts / tooling  |
+
 ---
