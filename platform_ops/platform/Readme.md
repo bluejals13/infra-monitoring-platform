@@ -40,16 +40,9 @@
 
 ```
 
+---
 
-
-
-
-
-
-
-\## 1. shared-platform (공통 인프라)
-
-
+## 1. shared-platform (공통 인프라)
 
 * 모든 서비스와 tenant가 공통으로 사용하는 기반 플랫폼
 
@@ -60,14 +53,9 @@
 | ingress 트래픽 진입 구조                      | ingress controller                 |
 | storage 구조 (PV / DB storage)           | persistent volume / storage system |
 
+---
 
-
-
-
-
-\## 2. Kubernetes (컨테이너 실행 엔진)
-
-
+## 2. Kubernetes (컨테이너 실행 엔진)
 
 * 서비스 실행과 확장(스케일링)을 담당하는 오케스트레이션
 
@@ -78,14 +66,9 @@
 | 자동 스케일링                          | HPA (Horizontal Pod Autoscaler) |
 | 배포 전략 관리                         | rolling / blue-green deployment |
 
+---
 
-
-
-
-
-\## 3. CI/CD (배포 자동화)
-
-
+## 3. CI/CD (배포 자동화)
 
 * 코드 변경부터 배포까지 자동화된 릴리즈 파이프라인
 
@@ -104,10 +87,9 @@ Git push
  → Monitoring 확인
 ```
 
+---
 
-\## 4. Infra Provisioning (인프라 자동 생성)
-
-
+## 4. Infra Provisioning (인프라 자동 생성)
 
 * 서버/네트워크/클러스터를 코드로 자동 생성
 
@@ -118,5 +100,4 @@ Git push
 | reusable infrastructure modules | Terraform modules |
 | provisioning workflow 정의        | IaC pipeline      |
 
-
-
+---
