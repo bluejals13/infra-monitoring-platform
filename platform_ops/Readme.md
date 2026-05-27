@@ -38,11 +38,10 @@ Infra / Cloud Team (AWS/GCP/K8s 기반)
 Ops / MSP (고객 운영)
 ```
 ---
-🟢 SRE = “서비스가 죽지 않게 하는 기본 시스템”
-🟡 Platform = “개발/배포를 빠르게 만드는 엔진”
-🔵 MSP = “여러 고객을 운영하는 비즈니스 구조”
-
-
-SRE 먼저 → Platform → CI/CD → EC2/Lambda → CDN/Edge
+- 🟢 SRE = “서비스가 죽지 않게 하는 기본 시스템”
+- 🟡 Platform = “개발/배포를 빠르게 만드는 엔진”
+- 🔵 MSP = “여러 고객을 운영하는 비즈니스 구조”
+---
+- SRE 먼저 → Platform → CI/CD → EC2/Lambda → CDN/Edge
 
 
