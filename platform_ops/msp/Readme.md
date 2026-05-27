@@ -32,20 +32,11 @@
 
 문제 탐지 → 분석 → 재현 → 대응 흐름
 
+---
 
-
-
-
-
-
-
-
-\## 1. tenant-management (고객 분리 구조)
-
-
+## 1. tenant-management (고객 분리 구조)
 
 * 여러 고객 환경을 안전하게 분리하고 독립적으로 운영
-
 
 | 핵심 역할                             | 주요 기술 / 구조                                       |
 | --------------------------------- | ------------------------------------------------ |
@@ -62,11 +53,9 @@ customer-a/
 customer-b/
 customer-c/
 ```
+---
 
-
-\## 2. ticket-flow (운영 프로세스)
-
-
+## 2. ticket-flow (운영 프로세스)
 
 * 모든 장애를 표준화된 프로세스로 처리
 
@@ -77,13 +66,9 @@ customer-c/
 | priority 분류 (P1~P4)   | severity matrix            |
 | workflow 정의           | alert → ticket → resolve   |
 
+---
 
-
-
-
-\## 3. SLA (서비스 기준 정의)
-
-
+## 3. SLA (서비스 기준 정의)
 
 * 서비스 품질을 수치 기반으로 관리
 
@@ -94,14 +79,9 @@ customer-c/
 | uptime 기준 관리    | SLO 기반 운영                           |
 | 고객 리포팅          | SLA 보고 체계                           |
 
+---
 
-
-
-
-
-\## 4. Escalation (장애 대응 단계)
-
-
+## 4. Escalation (장애 대응 단계)
 
 * 장애 대응 책임과 단계 명확화
 
@@ -113,6 +93,4 @@ customer-c/
 | On-call       | 24/7 장애 대응       |
 | Communication | 내부/고객 공지         |
 
-
-
-
+---
