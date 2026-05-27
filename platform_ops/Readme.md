@@ -29,9 +29,9 @@
 │   └── root-cause-analysis.md
 │
 └── automation/
-&nbsp;   ├── alert-rules.yaml
-&nbsp;   ├── grafana-provisioning.yaml
-&nbsp;   └── log-query-scripts
+         ├── alert-rules.yaml
+         ├── grafana-provisioning.yaml
+         └── log-query-scripts
 
 ```
 
@@ -39,9 +39,7 @@
 
 ---
 
-## 1. Observability (관측 시스템)
-
-* 시스템 상태를 실시간으로 판단
+## 1. Observability (관측 시스템)   -- 시스템 상태를 실시간으로 판단
 
 | 핵심 역할                                         | 주요 기술 / 산출물                              |
 | --------------------------------------------- | ---------------------------------------- |
