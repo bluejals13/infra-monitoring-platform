@@ -9,12 +9,8 @@
 ---
 
 ## 1. SRE Layer (시스템 안정성)
-
-
-
-### 1. 목적
-서비스 장애 원인 탐지 및 복구
-
+---
+### 1. 목적_____________________________________ * 서비스 장애 원인 탐지 및 복구
 
 ### 2. 책임
 ```bash
@@ -25,9 +21,7 @@ Validation: k6 트래픽 테스트
 Recovery: runbook 기반 대응
 ```
 
-### 3. 기술
-Prometheus / Grafana / Loki
-
+### 3. 기술_____________________________________ * Prometheus / Grafana / Loki
 
 ### 4. 산출물
 ```bash
@@ -39,12 +33,8 @@ k6 test scenario
 ---
 
 ## 2. MSP Layer (운영 프로세스)
-
-
-
-### 1. 목적
-장애 대응의 표준화 및 신속 처리
-
+---
+### 1. 목적_____________________________________ * 장애 대응의 표준화 및 신속 처리
 
 ### 2. 책임
 ```bash
@@ -55,9 +45,7 @@ Escalation (L1 → L2 → L3)
 Incident reporting
 ```
 
-### 3. 시스템
-Jira / ServiceNow
-
+### 3. 시스템_____________________________________ * Jira / ServiceNow
 
 ### 4. 산출물
 ```bash
@@ -69,12 +57,8 @@ incident-report.md
 ---
 
 ## 3. Platform Engineering Layer
-
-
-
-### 1. 목적
-서비스 실행을 위한 공통 인프라 제공
-
+---
+### 1. 목적_____________________________________ * 서비스 실행을 위한 공통 인프라 제공
 
 ### 2. 책임
 ```bash
@@ -85,9 +69,7 @@ Configuration management (Ansible)
 Shared runtime platform 제공
 ```
 
-### 3. 기술
-Kubernetes / Terraform / Ansible / GitHub Actions
-
+### 3. 기술_____________________________________ * Kubernetes / Terraform / Ansible / GitHub Actions
 
 ### 4. 산출물
 ```bash
