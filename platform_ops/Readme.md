@@ -1,91 +1,48 @@
 
-
-## SRE 구조
-
 ```bash
-
-1\_sre/
+platform-ops/
 │
-├── observability/
-│   ├── metrics/
-│   ├── dashboards/
-│   ├── alerts/
-│   └── slo-sli/
+├── 1_sre/
+│   ├── observability/
+│   ├── k6-validation/
+│   ├── runbooks/
+│   └── automation/
 │
-├── k6-validation/
-│   ├── baseline-test.js
-│   ├── stress-test.js
-│   └── spike-test.js
+├── 2_msp/
+│   ├── tenant-management/
+│   ├── ticket-flow/
+│   ├── sla/
+│   └── escalation/
 │
-├── runbooks/
-│   ├── api-latency.md
-│   ├── pod-crash.md
-│   ├── db-slow.md
-│   └── memory-leak.md
+├── 3_platform-engineering/
+│   ├── shared-platform/
+│   ├── kubernetes/
+│   ├── ci-cd/
+│   └── infra-provisioning/
 │
-├── incident-analysis/
-│   ├── postmortem-template.md
-│   ├── sample-incident.md
-│   └── root-cause-analysis.md
-│
-└── automation/
-         ├── alert-rules.yaml
-         ├── grafana-provisioning.yaml
-         └── log-query-scripts
-
+└── architecture/
+    ├── system-overview.md
+    ├── full-flow.md
+    └── diagrams/
 ```
-
-문제 탐지 → 분석 → 재현 → 대응 흐름
-
 ---
-
-#### 1. Observability (관측 시스템)_____________________________________ * 시스템 상태를 실시간으로 판단 
-
-| 핵심 역할                                         | 주요 기술 / 산출물                              |
-| --------------------------------------------- | ---------------------------------------- |
-| Metrics 수집 (CPU, Memory, Latency, Error Rate) | Prometheus                               |
-| Dashboard 시각화                                 | Grafana                                  |
-| 이상 상태 알림 (Alerts)                             | Loki                                     |
-| SLO / SLI 정의                                  | latency dashboard / error rate dashboard |
-
+```bash
+Product Teams (서비스 개발)
+        ↓
+Platform Engineering (배포/런타임)
+        ↓
+SRE / Reliability Engineering (안정성)
+        ↓
+Infra / Cloud Team (AWS/GCP/K8s 기반)
+        ↓
+Ops / MSP (고객 운영)
+```
 ---
+🟢 SRE = “서비스가 죽지 않게 하는 기본 시스템”
+🟡 Platform = “개발/배포를 빠르게 만드는 엔진”
+🔵 MSP = “여러 고객을 운영하는 비즈니스 구조”
 
-#### 2. k6 Validation (트래픽 검증)_____________________________________ * 실제 트래픽 기반 성능 및 한계 검증 
 
-| 핵심 역할                   | 주요 기술 / 산출물        |
-| ----------------------- | ------------------ |
-| Baseline (정상 기준 설정)     | k6                 |
-| Stress test (한계 부하 검증)  | k6 test scenario   |
-| Spike test (급격한 트래픽 대응) | 성능 기준 / scaling 기준 |
+SRE 먼저 → Platform → CI/CD → EC2/Lambda → CDN/Edge
 
----
 
-#### 3. Runbooks (표준 대응 매뉴얼)_____________________________________ * 장애 대응 방식의 표준화
-
-| 핵심 역할                            | 주요 기술 / 산출물               |
-| -------------------------------- | ------------------------- |
-| API / Pod / DB / Memory 장애 대응 절차 | runbook.md                |
-| 상황별 대응 가이드 제공                    | api-latency.md            |
-| 운영 경험 문서화                        | db-slow.md / pod-crash.md |
-
----
-
-#### 4. Incident Analysis (사후 분석)_____________________________________ * 장애 원인 분석 및 재발 방지
-
-| 핵심 역할                     | 주요 기술 / 산출물         |
-| ------------------------- | ------------------- |
-| Postmortem 작성             | postmortem template |
-| 장애 사례 기록                  | incident report     |
-| Root Cause Analysis (RCA) | RCA 문서              |
-
----
-
-#### 5. Automation (SRE 자동화)_____________________________________ * 운영 작업의 자동화 및 코드화
-
-| 핵심 역할           | 주요 기술 / 산출물            |
-| --------------- | ---------------------- |
-| Alert rule 자동화  | Prometheus alert rules |
-| Dashboard 자동 생성 | Grafana provisioning   |
-| 로그 조회 자동화       | log scripts / tooling  |
-
----
