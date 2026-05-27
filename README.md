@@ -9,7 +9,7 @@
 ---
 
 ## 1. SRE Layer (시스템 안정성)
----
+
 #### 1. 서비스 장애 원인 탐지 및 복구
 ```bash
 Observability: Prometheus / Grafana / Loki 모니터링
@@ -18,7 +18,6 @@ RCA: 장애 원인 분석
 Validation: k6 트래픽 테스트
 Recovery: runbook 기반 대응
 ```
----
 #### 4. 결과자료
 ```bash
 latency dashboard
@@ -29,7 +28,7 @@ k6 test scenario
 ---
 
 ## 2. Platform Engineering Layer
----
+
 #### 1. 서비스 실행을 위한 공통 인프라 제공
 ```bash
 Kubernetes 클러스터 운영
@@ -38,7 +37,7 @@ Infrastructure provisioning (Terraform)
 Configuration management (Ansible)
 Shared runtime platform 제공
 ```
----
+
 #### 4. 결과자료
 ```bash
 cluster.yaml
@@ -49,7 +48,7 @@ deployment guide
 ---
 
 ## 3. MSP Layer (운영 프로세스)
----
+
 #### 1. 장애 대응의 표준화 및 신속 처리
 ```bash
 Tenant 관리 (고객/서비스 분리)
@@ -58,7 +57,7 @@ SLA 관리 (응답/복구 기준)
 Escalation (L1 → L2 → L3)
 Incident reporting
 ```
----
+
 ### 4. 결과자료
 ```bash
 ticket-flow.md
