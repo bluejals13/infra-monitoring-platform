@@ -17,23 +17,25 @@
 
 
 ### 2. 책임
+```bash
 Observability: Prometheus / Grafana / Loki 모니터링
 Alerting: latency, error rate, resource threshold 감지
 RCA: 장애 원인 분석
 Validation: k6 트래픽 테스트
 Recovery: runbook 기반 대응
-
+```
 
 ### 3. 기술
 Prometheus / Grafana / Loki
 
 
 ### 4. 산출물
+```bash
 latency dashboard
 error rate dashboard
 runbook.md
 k6 test scenario
-
+```
 ---
 
 ## 2. MSP Layer (운영 프로세스)
@@ -45,23 +47,25 @@ k6 test scenario
 
 
 ### 2. 책임
+```bash
 Tenant 관리 (고객/서비스 분리)
 Ticket flow (Alert → Ticket → 처리)
 SLA 관리 (응답/복구 기준)
 Escalation (L1 → L2 → L3)
 Incident reporting
-
+```
 
 ### 3. 시스템
 Jira / ServiceNow
 
 
 ### 4. 산출물
+```bash
 ticket-flow.md
 sla.md
 escalation-policy.md
 incident-report.md
-
+```
 ---
 
 ## 3. Platform Engineering Layer
@@ -73,21 +77,23 @@ incident-report.md
 
 
 ### 2. 책임
+```bash
 Kubernetes 클러스터 운영
 CI/CD 파이프라인 구축
 Infrastructure provisioning (Terraform)
 Configuration management (Ansible)
 Shared runtime platform 제공
-
+```
 
 ### 3. 기술
 Kubernetes / Terraform / Ansible / GitHub Actions
 
 
 ### 4. 산출물
+```bash
 cluster.yaml
 terraform modules
 CI/CD pipeline
 deployment guide
-
+```
 ---
