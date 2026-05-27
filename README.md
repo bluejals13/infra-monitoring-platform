@@ -58,7 +58,7 @@ Escalation (L1 → L2 → L3)
 Incident reporting
 ```
 
-### 4. 결과자료
+#### 4. 결과자료
 ```bash
 ticket-flow.md
 sla.md
